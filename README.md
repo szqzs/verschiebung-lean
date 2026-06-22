@@ -25,23 +25,27 @@ The file `VerschiebungLean/Defs.lean` defines the basic combinatorial objects.
 
 * A local triple is a function `Fin 3 -> Nat`.
 * `Upper L a` is the system of four inequalities
-  \[
+
+  $$
   a_0+a_1+a_2+2 \le L,\qquad
   a_0 \le a_1+a_2,\qquad
   a_1 \le a_0+a_2,\qquad
   a_2 \le a_0+a_1.
-  \]
+  $$
+
 * `C P N a` is the level `N` local admissibility condition at parameter `P`.
   It consists of `Upper (P^N) a` together with the folded lower-level residue
   conditions modulo `P^M` for `1 <= M < N`.
 * `Phi P N n b` is the one-coordinate folding map
-  \[
+
+  $$
   \Phi(n,b)=
   \begin{cases}
   (n/2)P^{N-1}+b,& n \text{ even},\\
   ((n+1)/2)P^{N-1}-1-b,& n \text{ odd}.
   \end{cases}
-  \]
+  $$
+
   The definition `Phi3` applies this map coordinatewise to triples.
 * `TriGraph` is a minimal incidence model for trivalent multigraphs. This
   avoids using simple graphs, since parallel edges are allowed.
@@ -63,15 +67,15 @@ noncomputable def localFactorization
 ```
 
 In mathematical notation, this is the bijection
-\[
+$$
 C_N(P) \simeq C_1(2P)\times C_{N-1}(P).
-\]
+$$
 
 The forward map is `Phi3`. The inverse map splits each coordinate `A` by
 writing
-\[
+$$
 A=qP^{N-1}+r.
-\]
+$$
 If `r` lies in the lower half, it records `n=2q` and `b=r`; if `r` lies in the
 upper half, it records `n=2q+1` and `b=P^{N-1}-1-r`.
 
@@ -98,11 +102,11 @@ noncomputable def globalStep
 ```
 
 In mathematical notation, this is the bijection
-\[
+$$
 \operatorname{Ed}_{P,N,G}
 \simeq
 \operatorname{Ed}_{2P,1,G}\times \operatorname{Ed}_{P,N-1,G}.
-\]
+$$
 
 The construction is edgewise: split every edge label to get the two labelings
 on the right, or recombine the two right-hand labelings by `Phi`. The local
@@ -120,21 +124,21 @@ Verlinde identity.
 For `p > 0` and labels `a,b,c < p`, the quantity `fusionN p a b c` is the
 level-one fusion coefficient at even parameter `2p`. It is the real number
 defined by
-\[
+$$
 \operatorname{fusionN}(p,a,b,c)=
 \begin{cases}
 1,& a+b+c+2\le 2p\text{ and }a,b,c\text{ satisfy the triangle inequalities},\\
 0,& \text{otherwise}.
 \end{cases}
-\]
+$$
 Equivalently, it is the indicator function of `C1Even p a b c`.
 
 Let
-\[
+$$
 \theta_j=\frac{j\pi}{2p}.
-\]
+$$
 The trigonometric kernel `verlindeKernel p a b c` is
-\[
+$$
 \frac{2}{p}\sum_{j=1}^{p-1}
 \frac{
 \sin((2a+1)\theta_j)
@@ -145,7 +149,7 @@ The trigonometric kernel `verlindeKernel p a b c` is
 }
 +
 \frac{(-1)^{a+b+c}}{p}.
-\]
+$$
 
 The final theorem is `finiteVerlindeKernelTheorem_proved`, which proves
 `finiteVerlindeKernelTheorem`, namely:
