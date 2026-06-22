@@ -220,14 +220,13 @@ $$
 \frac{(-1)^{r+s}}{p}=\delta_{r,s}.
 $$
 
-This is the orthogonality of the endpoint-corrected sine transform, equivalently
-the orthogonality of the matrix with entries
+Equivalently, this is the orthogonality of the matrix with entries
 
 $$
 S_{r,j}=\sqrt{\frac{2}{p}}\sin((2r+1)\theta_j)
 $$
 
-for `1 <= j <= p-1`, together with the endpoint column
+for `1 <= j <= p-1`, and
 
 $$
 S_{r,p}=\frac{(-1)^r}{\sqrt p}.
