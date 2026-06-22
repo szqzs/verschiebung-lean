@@ -36,17 +36,9 @@ The file `VerschiebungLean/Defs.lean` defines the basic combinatorial objects.
 * `C P N a` is the level `N` local admissibility condition at parameter `P`.
   It consists of `Upper (P^N) a` together with the folded lower-level residue
   conditions modulo `P^M` for `1 <= M < N`.
-* `Phi P N n b` is the one-coordinate folding map. When `n` is even,
-
-  $$
-  \Phi(n,b)=(n/2)P^{N-1}+b.
-  $$
-
-  When `n` is odd,
-
-  $$
-  \Phi(n,b)=((n+1)/2)P^{N-1}-1-b.
-  $$
+* `Phi P N n b` is the one-coordinate folding map. When `n` is even, it is
+  `(n / 2) * P^(N - 1) + b`. When `n` is odd, it is
+  `((n + 1) / 2) * P^(N - 1) - 1 - b`.
 
   The definition `Phi3` applies this map coordinatewise to triples.
 * `TriGraph` is a minimal incidence model for trivalent multigraphs. This
