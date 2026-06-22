@@ -163,6 +163,29 @@ The final theorem is `finiteVerlindeKernelTheorem_proved`, which proves
     fusionN p a b c = verlindeKernel p a b c
 ```
 
+Equivalently, for every positive integer `p` and every `a,b,c` with
+`0 <= a,b,c < p`,
+
+$$
+N_{abc}^{(2p)}
+=
+\frac{2}{p}\sum_{j=1}^{p-1}
+\frac{
+\sin((2a+1)\theta_j)
+\sin((2b+1)\theta_j)
+\sin((2c+1)\theta_j)
+}{
+\sin(\theta_j)
+}
++
+\frac{(-1)^{a+b+c}}{p},
+\qquad
+\theta_j=\frac{j\pi}{2p},
+$$
+
+where `N_{abc}^{(2p)}` is `1` if the level-one admissibility inequalities at
+parameter `2p` hold, and `0` otherwise.
+
 The proof is elementary. It uses finite cosine sums, an endpoint-corrected
 sine orthogonality relation, a Clebsch-Gordan telescoping identity, and
 interval arithmetic.
