@@ -36,14 +36,16 @@ The file `VerschiebungLean/Defs.lean` defines the basic combinatorial objects.
 * `C P N a` is the level `N` local admissibility condition at parameter `P`.
   It consists of `Upper (P^N) a` together with the folded lower-level residue
   conditions modulo `P^M` for `1 <= M < N`.
-* `Phi P N n b` is the one-coordinate folding map
+* `Phi P N n b` is the one-coordinate folding map. When `n` is even,
 
   $$
-  \Phi(n,b)=
-  \begin{cases}
-  (n/2)P^{N-1}+b,& n \text{ even},\\
-  ((n+1)/2)P^{N-1}-1-b,& n \text{ odd}.
-  \end{cases}
+  \Phi(n,b)=(n/2)P^{N-1}+b.
+  $$
+
+  When `n` is odd,
+
+  $$
+  \Phi(n,b)=((n+1)/2)P^{N-1}-1-b.
   $$
 
   The definition `Phi3` applies this map coordinatewise to triples.
@@ -67,15 +69,18 @@ noncomputable def localFactorization
 ```
 
 In mathematical notation, this is the bijection
+
 $$
 C_N(P) \simeq C_1(2P)\times C_{N-1}(P).
 $$
 
 The forward map is `Phi3`. The inverse map splits each coordinate `A` by
 writing
+
 $$
 A=qP^{N-1}+r.
 $$
+
 If `r` lies in the lower half, it records `n=2q` and `b=r`; if `r` lies in the
 upper half, it records `n=2q+1` and `b=P^{N-1}-1-r`.
 
@@ -102,10 +107,11 @@ noncomputable def globalStep
 ```
 
 In mathematical notation, this is the bijection
+
 $$
-\operatorname{Ed}_{P,N,G}
+\mathrm{Ed}_{P,N,G}
 \simeq
-\operatorname{Ed}_{2P,1,G}\times \operatorname{Ed}_{P,N-1,G}.
+\mathrm{Ed}_{2P,1,G}\times \mathrm{Ed}_{P,N-1,G}.
 $$
 
 The construction is edgewise: split every edge label to get the two labelings
@@ -122,22 +128,27 @@ The file `VerschiebungLean/Trig.lean` proves a square-root-free finite
 Verlinde identity.
 
 For `p > 0` and labels `a,b,c < p`, the quantity `fusionN p a b c` is the
-level-one fusion coefficient at even parameter `2p`. It is the real number
-defined by
+level-one fusion coefficient at even parameter `2p`. It is equal to `1`
+exactly when the inequalities
+
 $$
-\operatorname{fusionN}(p,a,b,c)=
-\begin{cases}
-1,& a+b+c+2\le 2p\text{ and }a,b,c\text{ satisfy the triangle inequalities},\\
-0,& \text{otherwise}.
-\end{cases}
+a+b+c+2\le 2p,\qquad
+a\le b+c,\qquad
+b\le a+c,\qquad
+c\le a+b
 $$
+
+hold. Otherwise it is equal to `0`.
 Equivalently, it is the indicator function of `C1Even p a b c`.
 
 Let
+
 $$
 \theta_j=\frac{j\pi}{2p}.
 $$
+
 The trigonometric kernel `verlindeKernel p a b c` is
+
 $$
 \frac{2}{p}\sum_{j=1}^{p-1}
 \frac{
