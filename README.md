@@ -154,23 +154,6 @@ $$
 \frac{(-1)^{a+b+c}}{p}.
 $$
 
-The file does not define the matrix `S` directly. Instead, the equivalent
-endpoint-corrected sine orthogonality is proved as `sineKernel_orthogonality`.
-For `1 < p`, `0 <= r <= 2p-2`, and `0 <= s < p`, it proves that `K_rs` is
-`1` when `r=s`, is `-1` when `r+s+1=2p`, and is `0` otherwise,
-
-where
-
-$$
-K_{rs}=\frac{2}{p}\sum_{j=1}^{p-1}
-\sin((2r+1)\theta_j)\sin((2s+1)\theta_j)
-+
-\frac{(-1)^{r+s}}{p}.
-$$
-
-In particular, if `0 <= r,s < p`, the reflected case cannot occur, so this is
-the usual orthogonality relation for the endpoint-corrected sine transform.
-
 The final theorem is `finiteVerlindeKernelTheorem_proved`, which proves
 `finiteVerlindeKernelTheorem`, namely:
 
@@ -207,3 +190,45 @@ interval arithmetic.
 
 The term `(-1)^(a+b+c)/p` is the endpoint correction corresponding to the
 missing endpoint in the sum over `j = 1, ..., p-1`.
+
+## Endpoint-corrected sine orthogonality
+
+The lemma `sineKernel_orthogonality` is the orthogonality statement used in
+the proof of the finite Verlinde identity. The repository does not define the
+matrix `S` directly; instead, it proves the equivalent endpoint-corrected sine
+kernel identity.
+
+For `p > 1`, `0 <= r <= 2p-2`, and `0 <= s < p`, define
+
+$$
+K_{r,s}=\frac{2}{p}\sum_{j=1}^{p-1}
+\sin((2r+1)\theta_j)\sin((2s+1)\theta_j)
++
+\frac{(-1)^{r+s}}{p}.
+$$
+
+The lemma proves that `K_{r,s}=1` if `r=s`, that `K_{r,s}=-1` if
+`r+s+1=2p`, and that `K_{r,s}=0` otherwise.
+
+In particular, if `0 <= r,s < p`, the reflected case `r+s+1=2p` cannot occur,
+so the lemma gives
+
+$$
+\frac{2}{p}\sum_{j=1}^{p-1}
+\sin((2r+1)\theta_j)\sin((2s+1)\theta_j)
++
+\frac{(-1)^{r+s}}{p}=\delta_{r,s}.
+$$
+
+This is the orthogonality of the endpoint-corrected sine transform, equivalently
+the orthogonality of the matrix with entries
+
+$$
+S_{r,j}=\sqrt{\frac{2}{p}}\sin((2r+1)\theta_j)
+$$
+
+for `1 <= j <= p-1`, together with the endpoint column
+
+$$
+S_{r,p}=\frac{(-1)^r}{\sqrt p}.
+$$
