@@ -167,9 +167,7 @@ Equivalently, for every positive integer `p` and every `a,b,c` with
 `0 <= a,b,c < p`,
 
 $$
-N_{abc}^{(2p)}
-=
-\frac{2}{p}\sum_{j=1}^{p-1}
+N_{abc}^{(2p)}=\frac{2}{p}\sum_{j=1}^{p-1}
 \frac{
 \sin((2a+1)\theta_j)
 \sin((2b+1)\theta_j)
